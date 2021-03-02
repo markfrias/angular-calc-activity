@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CalcFrameComponent } from './calc-frame/calc-frame.component';
 import { DisplayComponent } from './display/display.component';
 import { ButtonSectionComponent } from './button-section/button-section.component';
+import { TipsComponent } from './tips/tips.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalcFrameComponent,
     DisplayComponent,
-    ButtonSectionComponent
+    ButtonSectionComponent,
+    TipsComponent
   ],
   imports: [
     BrowserModule,
