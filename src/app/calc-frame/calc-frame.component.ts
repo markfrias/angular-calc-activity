@@ -16,12 +16,19 @@ export class CalcFrameComponent implements OnInit {
   }
 
   result = 0;
-  operations ="1";
+  operations ="0";
 
   // Appends new numbers as new event inputs are added
   processInput(inputValue: string) {
+    // Block more 0 inputs if the only operation is 0
+    if (this.operations == '0' && inputValue == '0') {
+      return;
+    } else if (this.operations == '0') {
+      // Replace zero as first operator
+      this.operations = inputValue;
+      return;
+    }
     this.operations += inputValue;
-    console.log("operations: " + this.operations);
   }
   
 
