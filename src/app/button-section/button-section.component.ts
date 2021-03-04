@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'button-section',
@@ -11,5 +13,12 @@ export class ButtonSectionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Output() buttonPressEvent = new EventEmitter<string>();
+
+  buttonPress(buttonValue: string) {
+    this.buttonPressEvent.emit(buttonValue);
+  }
+
 
 }

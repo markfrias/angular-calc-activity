@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'calc-display',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
+  
+  @Input() result: number;
+  @Input() operations: string;
 
-  constructor() { }
+  constructor() {
+  
+   }
 
   ngOnInit(): void {
   }
+
+  
 
 }

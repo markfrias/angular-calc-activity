@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalcFrameComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  
+   }
 
   ngOnInit(): void {
   }
+
+  result = 0;
+  operations ="1";
+
+  // Appends new numbers as new event inputs are added
+  processInput(inputValue: string) {
+    this.operations += inputValue;
+    console.log("operations: " + this.operations);
+  }
+  
 
 }
