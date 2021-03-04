@@ -1,6 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { stringify } from '@angular/compiler/src/util';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'calc-frame',
@@ -16,9 +16,13 @@ export class CalcFrameComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  keyboardInput: string;
+
   result = 0;
   operations ="0";
   operatorCharacter = ['+', '-', '*', '/'];
+  acceptedCharacters = /[0-9]/;
+  
   clearOperations() {
     this.operations = '0'
   }
@@ -26,6 +30,17 @@ export class CalcFrameComponent implements OnInit {
   clearResults() {
     this.result = 0;
   }
+
+  onKey(event: any) {
+    this.keyboardInput = event.key;
+    if(this.acceptedCharacters.test(this.keyboardInput)){
+      this.processInput(event.key);
+    console.log(event)
+    }
+    
+  }
+
+  
 
   // Appends new numbers as new event inputs are added
   processInput(inputValue: string) {
