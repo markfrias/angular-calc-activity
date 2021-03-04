@@ -1,6 +1,6 @@
 <div class="row">
-    <button class="button ac">ac</button>
-    <button class="button ce">ce</button>
+    <button class="button ac" (click)="buttonPress('ac')">ac</button>
+    <button class="button ce" (click)="buttonPress('ce')">ce</button>
     <button class="button div" (click)="buttonPress('/')">%</button>
     <button class="button mult" (click)="buttonPress('*')">x</button>
 </div>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="right">
-        <div class="button eq">=</div>
+        <div class="button eq" (click)="buttonPress('=')">=</div>
     </div>
 
 </div>
