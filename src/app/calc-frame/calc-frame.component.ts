@@ -38,6 +38,8 @@ export class CalcFrameComponent implements OnInit {
     if(this.keyboardInput == "Delete") {
       this.clearOperations();
       this.clearResults();
+    } else if (this.keyboardInput == "End") {
+      this.clearOperations();
     }
     if(this.acceptedCharacters.test(this.keyboardInput)){
       this.processInput(event.key);
@@ -57,7 +59,7 @@ export class CalcFrameComponent implements OnInit {
       this.clearResults();
     } else if (inputValue == 'ce') {
       this.clearOperations();
-    }    
+    }  
 
     // Run this if operations and result is empty
     else if (this.operations == '0' && this.result == 0) {
