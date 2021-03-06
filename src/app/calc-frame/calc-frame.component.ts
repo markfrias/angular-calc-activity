@@ -33,9 +33,15 @@ export class CalcFrameComponent implements OnInit {
 
   onKey(event: any) {
     this.keyboardInput = event.key;
+    console.log(event);
+
+    if(this.keyboardInput == "Delete") {
+      this.clearOperations();
+      this.clearResults();
+    }
     if(this.acceptedCharacters.test(this.keyboardInput)){
       this.processInput(event.key);
-    console.log(event)
+    
     }
     
   }

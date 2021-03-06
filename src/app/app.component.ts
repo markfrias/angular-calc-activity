@@ -10,10 +10,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
  
   title = 'angular-activity';
-  keyValue: string;
-  onKey(event: any) {
-    this.keyValue = event.key;
-  }
+  
   
   
 }
