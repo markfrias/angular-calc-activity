@@ -21,7 +21,7 @@ export class CalcFrameComponent implements OnInit {
   result = 0;
   operations ="0";
   operatorCharacter = ['+', '-', '*', '/'];
-  acceptedCharacters = /[0-9]/;
+acceptedCharacters = /[0-9]/;
  
   enterPressed = false;
   
@@ -53,7 +53,9 @@ export class CalcFrameComponent implements OnInit {
       this.processInput(event.key);
       console.log("hey");
     
-    }
+    } else if (this.operatorCharacter.includes(this.keyboardInput)) {
+      this.processInput(event.key);
+    } 
     
   }
 
