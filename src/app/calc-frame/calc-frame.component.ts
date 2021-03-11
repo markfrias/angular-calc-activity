@@ -49,6 +49,7 @@ export class CalcFrameComponent implements OnInit {
 
   clearResults() {
     this.result = 0;
+    this.max = false;
   }
 
   onKey(event: any) {
