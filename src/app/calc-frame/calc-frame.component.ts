@@ -22,11 +22,29 @@ export class CalcFrameComponent implements OnInit {
   operations ="0";
   operatorCharacter = ['+', '-', '*', '/'];
   acceptedCharacters = /[0-9]/;
+  max: boolean;
  
   enterPressed = false;
   
+  evaluateExpression() {
+    this.result = eval(this.operations);
+    this.clearOpsScreen();
+
+    // Trigger max if results overflow
+    if(this.result.toString().length >= 10) {
+      this.max = true;
+      console.log("max");
+    } else {
+      this.max = false;
+    }
+  }
+
+  clearOpsScreen() {
+    this.operations = "0";
+  }
+
   clearOperations() {
-    this.operations = '0'
+    this.operations = this.operations.substr(0, this.operations.length - 1);
   }
 
   clearResults() {
@@ -37,7 +55,7 @@ export class CalcFrameComponent implements OnInit {
     this.keyboardInput = event.key;
 
     if(this.keyboardInput == "Delete") {
-      this.clearOperations();
+      this.clearOpsScreen();
       this.clearResults();
     } else if (this.keyboardInput == "End") {
       this.clearOperations();
@@ -59,7 +77,7 @@ export class CalcFrameComponent implements OnInit {
    
     // Run code if AC or CE is pressed
     if (inputValue == 'ac') {
-      this.clearOperations();
+      this.clearOpsScreen();
       this.clearResults();
     } else if (inputValue == 'ce') {
       this.clearOperations();
@@ -91,8 +109,8 @@ export class CalcFrameComponent implements OnInit {
 
       // Evaluate expression if last value is not a symbol
       if (!this.operatorCharacter.includes(this.operations.charAt(this.operations.length - 1)) && inputValue == "=") {
-        this.result = eval(this.operations);
-        this.clearOperations();
+       
+        this.evaluateExpression();
       }
    
     }
@@ -112,20 +130,17 @@ export class CalcFrameComponent implements OnInit {
         } else {
           if (this.operations.length > 25){return;}
           this.operations += inputValue;
+          
         }
        
       }
 
       // Evaluate expression if last value is not a symbol
       if (!this.operatorCharacter.includes(this.operations.charAt(this.operations.length - 1)) && inputValue == "=") {
-        // Combine result and operations when the first operation is a symbol
-        if (this.operatorCharacter.includes(this.operations.charAt(0))) {
-          this.result = eval(this.result + this.operations);
-          this.clearOperations();
-        } else {
-          this.result = eval(this.operations);
-          this.clearOperations();
-        }
+        
+   
+        this.evaluateExpression();
+        
        
       }
     }

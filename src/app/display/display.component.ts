@@ -10,12 +10,18 @@ export class DisplayComponent implements OnInit {
   @Input() result: number;
   @Input() operations: string;
 
+  
+
   constructor() {
   
    }
 
   ngOnInit(): void {
+    
   }
+
+  
+  
 
   
 

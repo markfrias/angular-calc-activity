@@ -11,6 +11,10 @@
 
 .display-main {
     height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+   
 }
 
 .display-indicate {
