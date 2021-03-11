@@ -27,8 +27,13 @@ export class CalcFrameComponent implements OnInit {
   enterPressed = false;
   
   evaluateExpression() {
-    this.result = eval(this.operations);
+    try {
+      this.result = eval(this.operations);
     this.clearOpsScreen();
+    } catch(err) {
+      this.operations = "Error!";
+      this.result = 0;
+    }
 
     // Trigger max if results overflow
     if(this.result.toString().length >= 10) {
